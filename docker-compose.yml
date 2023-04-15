@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+   service-one:
+      image: nginx
+      container_name: thisservice
+      hostname: thisservice.local
+      ports:
+         - "8080:80"
+      volumes:
+         - ./thisservice:/usr/share/nginx/html
+      networks:
+         rimutec:
+
+   service-two:
+      image: nginx
+      container_name: otherservice
+      hostname: otherservice.local
+      ports:
+         - "8090:80"
+      volumes:
+         - ./otherservice:/usr/share/nginx/html
+      networks:
+         rimutec:
+
+networks:
+   rimutec:
